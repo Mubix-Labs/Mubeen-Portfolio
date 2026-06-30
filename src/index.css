@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color system: blue / white / black */
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #141414;
+  --color-paper: #ffffff;
+  --color-paper-dim: #f7f8fa;
+  --color-azure: #1d4ed8;
+  --color-azure-light: #3b82f6;
+  --color-azure-deep: #0f1f4d;
+  --color-slate: #64748b;
+  --color-slate-light: #94a3b8;
+  --color-line: #e2e5ea;
+
+  /* Type */
+  --font-display: "Times New Roman", "Liberation Serif", Georgia, serif;
+  --font-body: Calibri, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Layout rhythm — tight on purpose */
+  --container-tight: 72rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-body antialiased;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background: var(--color-azure);
+    color: white;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-azure);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(110deg, var(--color-azure) 0%, var(--color-azure-light) 45%, var(--color-ink) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-mesh {
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 0%, rgba(29, 78, 216, 0.10), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 100% 30%, rgba(59, 130, 246, 0.08), transparent 60%);
+  }
+}
