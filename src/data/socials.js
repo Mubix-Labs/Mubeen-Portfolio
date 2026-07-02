@@ -6,4 +6,4 @@ export const socials = [
   { id: "twitter", label: "X / Twitter", href: "https://x.com/HelloMUBEEN" },
 ];
 
-export const contactEmail = "hello@hellomubeen.me";
+export const contactEmail = "hello@hellomubeen.dev";
